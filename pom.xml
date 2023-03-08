@@ -25,10 +25,9 @@
                     <!--
                     <useUnlimitedThreads>true</useUnlimitedThreads>
 -->
-                    <threadCount>5</threadCount>
-
+                    <argLine>-Duser.language=en</argLine>
+                    <threadCount>2</threadCount>
                     <perCoreThreadCount>false</perCoreThreadCount>
-
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
                         <include>**/CukesRunner*.java</include>
