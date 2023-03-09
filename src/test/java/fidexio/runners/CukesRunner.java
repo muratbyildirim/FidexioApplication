@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "fidexio/step_definitions",
         dryRun = false,
-        tags = ""
+        tags = "@FIX10-236"
 
 
 )
