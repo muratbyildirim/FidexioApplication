@@ -7,12 +7,14 @@ Feature: Fidexio apllication Log out Functionality
       | email    | posmanager15@info.com |
       | password | posmanager            |
 
+  @FIX10-297
   Scenario:  Verify user can log out and ends up in login page.
     When user click the profile dropdown located top right corner
     And user click the log out link
     Then user end up on login page
       | title | Login |
 
+  @FIX10-298
   Scenario: Verify user can not back home page by clicking  step back button.
     When user click the profile dropdown located top right corner
     And user click the log out link
