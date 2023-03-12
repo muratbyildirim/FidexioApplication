@@ -29,13 +29,21 @@ Feature: Fidexio application login functionality
       | salesmanager | invalid@info.com      | invalid    | Wrong login/password |
 
   @FIX10-292
-  Scenario:Verify field message should be displayed if the password or username is empty
+  Scenario Outline:Verify field message should be displayed if the password or username is empty
    # Then input weblements "required" attribute values should be "true"
+    When "<user>" enter username "<username>" and password "<password>"
+    And user click on login button
     Then user should see the "Please fill out this field." message
+    Examples:
+      | user       | username   | password |
+      | posmanager | posmanager |          |
+      | posmanager |            | password |
+
 
   @FIX10-293
   Scenario: Verify user should see the password in bullet signs by default
     #Then password input weblement "type" attribute values should be "password"
+    When user enters password "password" to password  input
     Then User should see the password in bullet signs
 
   @FIX10-294

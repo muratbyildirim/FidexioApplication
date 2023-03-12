@@ -67,9 +67,13 @@ public class Login_Step_Definition {
 //    }
     @Then("user should see the {string} message")
     public void user_should_see_the_message(String expectedFieldMessage) {
-        System.out.println(loginPage.inputEmail.getAttribute("validationMessage"));
-        Assert.assertEquals(expectedFieldMessage,loginPage.inputEmail.getAttribute("validationMessage"));
-        Assert.assertEquals(expectedFieldMessage,loginPage.inputPassword.getAttribute("validationMessage"));
+
+        if (!loginPage.inputEmail.getAttribute("validationMessage").isEmpty()){
+            Assert.assertEquals(expectedFieldMessage,loginPage.inputEmail.getAttribute("validationMessage"));
+        }else {
+            Assert.assertEquals(expectedFieldMessage,loginPage.inputPassword.getAttribute("validationMessage"));
+        }
+
 
     }
 
@@ -79,6 +83,13 @@ public class Login_Step_Definition {
 //        String actualPasswordInputAttributeValue=loginPage.inputPassword.getAttribute(attribute);
 //        Assert.assertEquals(expectedValue,actualPasswordInputAttributeValue);
 //    }
+
+
+    @When("user enters password {string} to password  input")
+    public void user_enters_password_to_password_input(String password) {
+        loginPage.inputPassword.sendKeys(password);
+
+    }
 
     @Then("User should see the password in bullet signs")
     public void user_should_see_the_password_in_bullet_signs() {
